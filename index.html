@@ -46,35 +46,33 @@
                 <h3 class="text-center">Create A New Task</h3>
                 <div class="row">
                     <h5 class="text-left">Title Task</h5>
-                    <input type="text" placeholder="Add A Task Name">
+                    <input id="taskNameInput" class="form-control" type="text" placeholder="Add A Task Name">
                 </div>
                 <div class="row">
                     <h5>Description</h5>
-                    <input type="text" placeholder="Add A Description">
+                    <input id="descriptionInput" class="form-control" type="text" placeholder="Add A Description">
 
                 </div>
                 <div class="row">
                     <div class="col my-4 d-flex flex-column justify-content-center align-items-center">
                         <h5 >DATE</h5>
-                        <input class="px-5" type="date">
+                        <input id="dateInput" class="px-5 form-control" type="date">
 
                     </div>
                     <div class="col my-4 d-flex flex-column justify-content-center align-items-center">
                         <h5 >TIME</h5>
-                        <input class="px-5" type="time">
+                        <input id="timeInput" class="px-5 form-control" type="time">
                     </div>
                 </div>
                 <div class="row text-center">
                     <div class="col my-4">
-                        <button id="add" class="px-5">CREATE</button>
+                        <button id="createBtn" class="btn btn-primary px-5">CREATE</button>
 
                     </div>
                     <div class="col my-4">
-                        <button id="add" class="px-5">CANCEL</button>
+                        <button id="cancelBtn" class="btn btn-primary px-5">CANCEL</button>
                     </div>
                 </div>
-
-
             </div>
 
             <div class="col-md-6 bg-light">
@@ -97,8 +95,6 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
         
     </section> 
