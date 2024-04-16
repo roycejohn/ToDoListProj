@@ -77,27 +77,64 @@
 
             <div class="col-md-6 bg-light">
                 <h3 class="text-center">Today's To-Do-List</h3>
-                <div class="row py-4 rounded border border-dark">
-                    <div class="col-md-1">TIME
+
+                <!-- add title with bootsrap properties -->
+                <div class="row text-center fw-bold">
+                    <span class="col-md-1">Time</span>
+                    <span class="col-md-8">Task</span>
+                    <span class="col-md-1">Option</span>
+                </div>
+                <div id="taskFilled" class="row py-4"> 
+                    <div class="border border-dark">
 
                     </div>
-                    <div id="taskFilled" class="col-md-7 text-center">TASK
+                    <!-- <div class="col text-start">
+                        <span>Time</span>
+                    </div>
+                    <div  class="col text-center">
+                        <span>Task</span>
                          
                     </div>
-                    <div class="col-md-1">
-                        <img src="assets/Check.svg" alt="check-icon" height="24px" width="24px">
+                    <div class="col text-end">
+                        <img src="assets/Check.svg" alt="check-icon" height="24px" width="24px" onclick="markAsDone(this)">
                     </div>
                     <div class="col-md-1">
-                        <img src="assets/Edit.svg" alt="edit-icon" height="24px" width="24px">
+                        <img src="assets/Edit.svg" alt="edit-icon" height="24px" width="24px" onclick="editTask(this)">
                     </div>
                     <div class="col-md-1">
-                        <img src="assets/Delete.svg" alt="delete-icon" height="24px" width="24px">
-                    </div>
+                        <img src="assets/Delete.svg" alt="delete-icon" height="24px" width="24px" onclick="deleteRow(this)">
+                    </div> -->
+
                 </div>
             </div>
         </div>
         
     </form> 
+    <!-- <script>
+         function markAsDone(element) {
+        var taskRow = element.parentElement.parentElement;
+        if (taskRow.style.backgroundColor === '') {
+            taskRow.style.backgroundColor = '#C8E6C9'; // Change to the desired color for completed tasks
+        } else {
+            taskRow.style.backgroundColor = '';
+        }
+    }
+        // Function to edit the task
+        function editTask(element) {
+            var taskRow = element.parentElement.parentElement;
+            var taskCell = taskRow.querySelector('.col.text-center span');
+            var newTaskName = prompt('Enter the new task name:', taskCell.textContent);
+            if (newTaskName !== null && newTaskName.trim() !== '') {
+                taskCell.textContent = newTaskName;
+            }
+        }
+    
+        // Function to delete the row
+        function deleteRow(element) {
+            var taskRow = element.parentElement.parentElement;
+            taskRow.remove();
+        }
+    </script> -->
     <script src="./script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> 
 </body>
