@@ -85,16 +85,6 @@ taskFinal.addEventListener("submit", (e) => {
         taskFilled.appendChild(finalTask);
 
 
-
-
-        // let checkColumn = createImageColumn('assets/Check.svg');
-        // let editColumn = createImageColumn('assets/Edit.svg');
-        // let deleteColumn = createImageColumn('assets/Delete.svg');
-
-        // finalTask.appendChild(checkColumn);
-        // finalTask.appendChild(editColumn);
-        // finalTask.appendChild(deleteColumn);
-
      
 
 // Creates the content for the paragraph based on what the user has written
@@ -141,20 +131,39 @@ function markAsDone(element) {
         taskRow.remove();
     }
 
-// function createImageColumn(src) {
-//         let imgColumn = document.createElement('div');
-//         imgColumn.classList.add('col-md-1');
-
-//         let img = document.createElement('img');
-//         img.src = src;
-//         img.alt = 'icon';
-//         img.height = '24';
-//         img.width = '24';
-
-//         imgColumn.appendChild(img);
-//         return imgColumn;
-//     }
 
 
+// script for index0.html
+function saveName() {
+    const nameInput = document.getElementById("nameInput");
+    const name = nameInput.value.trim();
+    
+    if (name !== "") {
+      localStorage.setItem("username", name);
+      window.location.href = "index.html";
+    }
+  }
 
+// script for index.html
+
+const username = localStorage.getItem("username");
+if (username) {
+  document.getElementById("username").textContent = username;
+} else {
+  window.location.href = "index0.html";
+}
+
+
+//script for date
+const todayElement = document.getElementById('today');
+const currentDateElement = document.getElementById('currentDate');
+
+const currentDate = new Date();
+const formattedDate = currentDate.toLocaleDateString('en-DE');
+
+const options = { weekday: 'long' };
+const formattedDay = currentDate.toLocaleDateString('en-DE', options);
+
+todayElement.textContent = formattedDay;
+currentDateElement.textContent = formattedDate;
 
