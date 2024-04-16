@@ -29,8 +29,6 @@ taskFinal.addEventListener("submit", (e) => {
         let finalTask = document.createElement('div');
         // Generate a unique ID for the task div
         finalTask.id = `task${taskIdCounter}`;
-        // Increment the task ID counter
-        taskIdCounter++;
         // Creates the content for the paragraph based on what the user has written
         finalTask.textContent = `${taskName.value} - ${taskDesc.value}`;
         // Add Bootstrap padding top class
@@ -43,13 +41,58 @@ taskFinal.addEventListener("submit", (e) => {
         // Creates a paragraph to add to the Time div
         let finalTime = document.createElement('div');
         // Generate a unique ID for the time div
-        finalTime.id = `time${taskIdCounter}`;
+        finalTime.id = `task${taskIdCounter}`;
         // Creates the content for the paragraph based on what the user has written
         finalTime.textContent = `${dateEntry.value} - ${timeEntry.value}`;
         // Add Bootstrap padding top class
         finalTime.classList.add('pt-3'); // Adjust the padding value as needed
         // Appends the created content   
         divTime.appendChild(finalTime);
+
+        // Get the taskIcons div
+        let taskIconsDiv = document.getElementById('taskIcons');
+
+        // Create a container for the row of icons
+        let iconsRowContainer = document.createElement('div');
+        iconsRowContainer.classList.add('row', 'pt-3');
+
+        // Create the check icon div
+        let checkIconDiv = document.createElement('div');
+        checkIconDiv.classList.add('col-4');
+        checkIconDiv.id = `task${taskIdCounter}`;
+        let checkIconImg = document.createElement('img');
+        checkIconImg.src = "assets/Check.svg";
+        checkIconImg.alt = "check-icon";
+        checkIconDiv.appendChild(checkIconImg);
+
+        // Create the edit icon div
+        let editIconDiv = document.createElement('div');
+        editIconDiv.classList.add('col-4');
+        editIconDiv.id = `task${taskIdCounter}`;
+        let editIconImg = document.createElement('img');
+        editIconImg.src = "assets/Edit.svg";
+        editIconImg.alt = "edit-icon";
+        editIconDiv.appendChild(editIconImg);
+
+        // Create the delete icon div
+        let deleteIconDiv = document.createElement('div');
+        deleteIconDiv.classList.add('col-4');
+        deleteIconDiv.id = `task${taskIdCounter}`;
+        let deleteIconImg = document.createElement('img');
+        deleteIconImg.src = "assets/Delete.svg";
+        deleteIconImg.alt = "delete-icon";
+        deleteIconDiv.appendChild(deleteIconImg);
+
+        // Append icon divs to the row container
+        iconsRowContainer.appendChild(checkIconDiv);
+        iconsRowContainer.appendChild(editIconDiv);
+        iconsRowContainer.appendChild(deleteIconDiv);
+
+        // Append the row container to the taskIcons div
+        taskIconsDiv.appendChild(iconsRowContainer);
+        
+        // Increment the task ID counter
+        taskIdCounter++;
 
         // Clears what the user wrote
         taskName.value = "";
@@ -58,3 +101,8 @@ taskFinal.addEventListener("submit", (e) => {
         timeEntry.value = "";  
     }    
 });
+
+
+
+// ICONS FUNCTIONALITY
+
