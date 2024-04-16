@@ -80,6 +80,8 @@ taskFinal.addEventListener("submit", (e) => {
         let checkIconImg = document.createElement('img');
         checkIconImg.src = "assets/Check.svg";
         checkIconImg.alt = "check-icon";
+        checkIconImg.width = '24'
+        checkIconImg.height = '24'
         checkIconDiv.appendChild(checkIconImg);
 
         // Create the edit icon div
@@ -89,6 +91,8 @@ taskFinal.addEventListener("submit", (e) => {
         let editIconImg = document.createElement('img');
         editIconImg.src = "assets/Edit.svg";
         editIconImg.alt = "edit-icon";
+        editIconImg.width = '24'
+        editIconImg.height = '24'
         editIconDiv.appendChild(editIconImg);
 
         // Create the delete icon div
@@ -98,6 +102,8 @@ taskFinal.addEventListener("submit", (e) => {
         let deleteIconImg = document.createElement('img');
         deleteIconImg.src = "assets/Delete.svg";
         deleteIconImg.alt = "delete-icon";
+        deleteIconImg.width = '24'
+        deleteIconImg.height = '24'
         deleteIconDiv.appendChild(deleteIconImg);
 
         // Append icon divs to the row container
