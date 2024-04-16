@@ -38,7 +38,7 @@ taskFinal.addEventListener("submit", (e) => {
         alert("Ensure you input a value in both fields!");
     } else {
         alert("This task has been successfully submitted!");
-        console.log(`This form has a Task Name of ${taskName.value} and Task Description of ${taskDesc.value}`);
+        console.log(`This form has a Task Name of ${taskName.value} and Task Description of ${taskDesc.value}. It was also set with the date ${dateEntry.value} of and time of ${timeEntry.value}`);
 
         // Creates a variable for the Task created div        
         let divTask = document.getElementById('taskFilled');
@@ -71,7 +71,7 @@ taskFinal.addEventListener("submit", (e) => {
 
         // Create a container for the row of icons
         let iconsRowContainer = document.createElement('div');
-        iconsRowContainer.classList.add('row', 'pt-3');
+        iconsRowContainer.classList.add('row', 'pt-1');
 
         // Create the check icon div
         let checkIconDiv = document.createElement('div');
