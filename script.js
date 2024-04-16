@@ -1,5 +1,22 @@
 console.log('WE ARE CONNECTED!')
 
+
+/* HERE IS WHAT GETS CREATED EVERY TIME THE TASKS IS ADDED IN REGARDS OF ICONS AND FOR PURPOUSE OF REWRITING THE CODE
+
+                        <div class="row pt-3">
+                            <div id="icon1 check" class="col-4 btn taskGroup${taskIdCounter}">
+                                <img src="assets/Check.svg" alt="check-icon">
+                            </div>
+                            <div id="icon1 edit" class="col-4 btn taskGroup${taskIdCounter}">
+                                <img src="assets/Edit.svg" alt="edit-icon">
+                            </div>
+                            <div id="icon1 delete" class="col-4 btn taskGroup${taskIdCounter}">
+                                <img src="assets/Delete.svg" alt="delete-icon">
+                            </div>
+                        </div>
+
+*/
+
 // Initialize a counter for generating unique IDs
 let taskIdCounter = 1;
 
@@ -41,7 +58,7 @@ taskFinal.addEventListener("submit", (e) => {
         // Creates a paragraph to add to the Time div
         let finalTime = document.createElement('div');
         // Generate a unique ID for the time div
-        finalTime.id = `task${taskIdCounter}`;
+        finalTime.id = `time${taskIdCounter}`;
         // Creates the content for the paragraph based on what the user has written
         finalTime.textContent = `${dateEntry.value} - ${timeEntry.value}`;
         // Add Bootstrap padding top class
@@ -58,8 +75,8 @@ taskFinal.addEventListener("submit", (e) => {
 
         // Create the check icon div
         let checkIconDiv = document.createElement('div');
-        checkIconDiv.classList.add('col-4');
-        checkIconDiv.id = `task${taskIdCounter}`;
+        checkIconDiv.classList.add('col-4', 'btn');
+        checkIconDiv.id = `icon${taskIdCounter} check`;
         let checkIconImg = document.createElement('img');
         checkIconImg.src = "assets/Check.svg";
         checkIconImg.alt = "check-icon";
@@ -67,8 +84,8 @@ taskFinal.addEventListener("submit", (e) => {
 
         // Create the edit icon div
         let editIconDiv = document.createElement('div');
-        editIconDiv.classList.add('col-4');
-        editIconDiv.id = `task${taskIdCounter}`;
+        editIconDiv.classList.add('col-4', 'btn');
+        editIconDiv.id = `icon${taskIdCounter} edit`;
         let editIconImg = document.createElement('img');
         editIconImg.src = "assets/Edit.svg";
         editIconImg.alt = "edit-icon";
@@ -76,8 +93,8 @@ taskFinal.addEventListener("submit", (e) => {
 
         // Create the delete icon div
         let deleteIconDiv = document.createElement('div');
-        deleteIconDiv.classList.add('col-4');
-        deleteIconDiv.id = `task${taskIdCounter}`;
+        deleteIconDiv.classList.add('col-4', 'btn');
+        deleteIconDiv.id = `icon${taskIdCounter} delete`;
         let deleteIconImg = document.createElement('img');
         deleteIconImg.src = "assets/Delete.svg";
         deleteIconImg.alt = "delete-icon";
@@ -90,7 +107,63 @@ taskFinal.addEventListener("submit", (e) => {
 
         // Append the row container to the taskIcons div
         taskIconsDiv.appendChild(iconsRowContainer);
-        
+
+        finalTask.classList.add(`taskGroup${taskIdCounter}`);
+        finalTime.classList.add(`taskGroup${taskIdCounter}`);
+        checkIconDiv.classList.add(`taskGroup${taskIdCounter}`);
+        editIconDiv.classList.add(`taskGroup${taskIdCounter}`);
+        deleteIconDiv.classList.add(`taskGroup${taskIdCounter}`)
+
+// ICONS FUNCTIONALITY
+
+// DELETE
+
+        deleteIconDiv.addEventListener('click', function() {
+                // Extract the task ID from the deleteIconDiv ID
+                let deleteIconDivId = this.id;
+                let taskId = deleteIconDivId.match(/\d+/)[0];
+                
+                // Select all elements with the taskGroup class containing the taskId
+                let elementsToRemove = document.querySelectorAll(`.taskGroup${taskId}`);
+            
+                // Remove all selected elements
+                elementsToRemove.forEach(element => {
+                    element.remove();
+                });
+        });
+
+// CHECK
+
+        checkIconDiv.addEventListener('click', function() {
+                // Extract the task ID from the deleteIconDiv ID
+                let checkIconDiv = this.id;
+                let taskId = checkIconDiv.match(/\d+/)[0];
+                
+                // Select all elements with the taskGroup class containing the taskId
+                let elementsToStrikeThrough = document.querySelectorAll(`.taskGroup${taskId}`);
+                
+                // Strike through all text inside the selected elements
+                elementsToStrikeThrough.forEach(element => {
+                element.style.textDecoration = "line-through";
+                });
+        });
+
+// EDIT
+
+        editIconDiv.addEventListener('click', function() {
+                // Extract the task ID from the deleteIconDiv ID
+                let editIconDiv = this.id;
+                let taskId = editIconDiv.match(/\d+/)[0];
+                
+                // Select all elements with the taskGroup class containing the taskId
+                let elementsToModify = document.querySelectorAll(`.taskGroup${taskId}`);
+                
+                // Make the content of the selected elements editable
+                elementsToModify.forEach(element => {
+                    element.contentEditable = true;
+                });
+        });
+
         // Increment the task ID counter
         taskIdCounter++;
 
@@ -99,10 +172,21 @@ taskFinal.addEventListener("submit", (e) => {
         taskDesc.value = "";
         dateEntry.value = "";
         timeEntry.value = "";  
-    }    
+    }        
 });
 
 
 
-// ICONS FUNCTIONALITY
+
+
+
+
+
+
+
+
+
+
+
+
 
