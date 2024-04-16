@@ -141,7 +141,7 @@ taskFinal.addEventListener("submit", (e) => {
 // CHECK
 
         checkIconDiv.addEventListener('click', function() {
-                // Extract the task ID from the deleteIconDiv ID
+                // Extract the task ID from the checkIconDiv ID
                 let checkIconDiv = this.id;
                 let taskId = checkIconDiv.match(/\d+/)[0];
                 
@@ -157,7 +157,7 @@ taskFinal.addEventListener("submit", (e) => {
 // EDIT
 
         editIconDiv.addEventListener('click', function() {
-                // Extract the task ID from the deleteIconDiv ID
+                // Extract the task ID from the editIconDiv ID
                 let editIconDiv = this.id;
                 let taskId = editIconDiv.match(/\d+/)[0];
                 
