@@ -178,7 +178,9 @@ taskFinal.addEventListener("submit", (e) => {
         taskDesc.value = "";
         dateEntry.value = "";
         timeEntry.value = "";  
-    }        
+    }
+
+
 });
 
 
