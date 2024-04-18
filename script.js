@@ -1,21 +1,4 @@
-console.log('WE ARE CONNECTED!')
 
-
-/* HERE IS WHAT GETS CREATED EVERY TIME THE TASKS IS ADDED IN REGARDS OF ICONS AND FOR PURPOUSE OF REWRITING THE CODE
-
-                        <div class="row pt-3">
-                            <div id="icon1 check" class="col-4 btn taskGroup${taskIdCounter}">
-                                <img src="assets/Check.svg" alt="check-icon">
-                            </div>
-                            <div id="icon1 edit" class="col-4 btn taskGroup${taskIdCounter}">
-                                <img src="assets/Edit.svg" alt="edit-icon">
-                            </div>
-                            <div id="icon1 delete" class="col-4 btn taskGroup${taskIdCounter}">
-                                <img src="assets/Delete.svg" alt="delete-icon">
-                            </div>
-                        </div>
-
-*/
 
 // Initialize a counter for generating unique IDs
 let taskIdCounter = 1;
