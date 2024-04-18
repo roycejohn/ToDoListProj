@@ -40,6 +40,7 @@ taskFinal.addEventListener("submit", (e) => {
         alert("This task has been successfully submitted!");
         console.log(`This form has a Task Name of ${taskName.value} and Task Description of ${taskDesc.value}. It was also set with the date ${dateEntry.value} of and time of ${timeEntry.value}`);
 
+
         // Creates a variable for the Task created div        
         let divTask = document.getElementById('taskFilled');
         // Creates a paragraph to add to the Task div
@@ -120,6 +121,37 @@ taskFinal.addEventListener("submit", (e) => {
         editIconDiv.classList.add(`taskGroup${taskIdCounter}`);
         deleteIconDiv.classList.add(`taskGroup${taskIdCounter}`)
 
+
+        const toDo = {
+            id: taskIdCounter,
+            name: taskName.value,
+            desc: taskDesc.value,
+            date: dateEntry.value,
+            time: timeEntry.value,
+            checkIcon: {
+                src: "assets/Check.svg",
+                alt:"check-icon",
+                width: '24',
+                height: '24',
+            },
+            editIcon: {
+                src: "assets/Edit.svg",
+                alt:"check-icon",
+                width: '24',
+                height: '24',
+            },
+            deleteIcon: {
+                src: "assets/Delete.svg",
+                alt:"check-icon",
+                width: '24',
+                height: '24',
+            }
+    
+        }
+
+        localStorage.setItem('toDo', JSON.stringify(toDo))
+    
+
 // ICONS FUNCTIONALITY
 
 // DELETE
@@ -170,6 +202,8 @@ taskFinal.addEventListener("submit", (e) => {
                 });
         });
 
+
+
         // Increment the task ID counter
         taskIdCounter++;
 
@@ -179,6 +213,7 @@ taskFinal.addEventListener("submit", (e) => {
         dateEntry.value = "";
         timeEntry.value = "";  
     }
+
 
 
 });
