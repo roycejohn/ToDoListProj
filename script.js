@@ -121,7 +121,13 @@ function createTheTask(taskNameValue, taskDescValue, dateValue, timeValue) {
         // Extract the task ID from the deleteIconDiv ID
         let deleteIconDivId = this.id;
         let taskId = deleteIconDivId.match(/\d+/)[0];
+        
+        // Remove the task from the completeTaskList array
+        completeTaskList.splice(taskId - 1, 1);
 
+        // Update local storage
+        localStorage.setItem('completeTaskList', JSON.stringify(completeTaskList));
+        
         // Select all elements with the taskGroup class containing the taskId
         let elementsToRemove = document.querySelectorAll(`.taskGroup${taskId}`);
 
@@ -133,24 +139,38 @@ function createTheTask(taskNameValue, taskDescValue, dateValue, timeValue) {
 
     // CHECK
     checkIconDiv.addEventListener('click', function() {
-        // Extract the task ID from the checkIconDiv ID
-        let checkIconDivId = this.id;
-        let taskId = checkIconDivId.match(/\d+/)[0];
+    // Extract the task ID from the checkIconDiv ID
+    let checkIconDivId = this.id;
+    let taskId = parseInt(checkIconDivId.match(/\d+/)[0]);
 
-        // Select all elements with the taskGroup class containing the taskId
-        let elementsToStrikeThrough = document.querySelectorAll(`.taskGroup${taskId}`);
+    // Update the task status in the completeTaskList array
+    completeTaskList[taskId - 1].checked = true;
 
-        // Strike through all text inside the selected elements
-        elementsToStrikeThrough.forEach(element => {
-            element.style.textDecoration = "line-through";
-        });
+    // Update local storage
+    localStorage.setItem('completeTaskList', JSON.stringify(completeTaskList));
+
+    // Update the task element in the DOM to visually indicate that it's checked
+    let elementsToCheck = document.querySelectorAll(`.taskGroup${taskId}`);
+    elementsToCheck.forEach(element => {
+        element.style.textDecoration = "line-through";
     });
+});
 
     // EDIT
     editIconDiv.addEventListener('click', function() {
         // Extract the task ID from the editIconDiv ID
         let editIconDivId = this.id;
         let taskId = editIconDivId.match(/\d+/)[0];
+
+        // Update the task content in the completeTaskList array
+        let newTaskNameValue = prompt("Enter the new task name:");
+        let newTaskDescValue = prompt("Enter the new task description:");
+
+        completeTaskList[taskId - 1].task = newTaskNameValue;
+        completeTaskList[taskId - 1].desc = newTaskDescValue;
+
+        // Update local storage
+        localStorage.setItem('completeTaskList', JSON.stringify(completeTaskList));
 
         // Select all elements with the taskGroup class containing the taskId
         let elementsToModify = document.querySelectorAll(`.taskGroup${taskId}`);
@@ -159,6 +179,7 @@ function createTheTask(taskNameValue, taskDescValue, dateValue, timeValue) {
         elementsToModify.forEach(element => {
             element.contentEditable = true;
         });
+
     });
 
     // Increment the task ID counter
